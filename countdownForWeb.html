@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPM Countdown Timer</title>
+</head>
+<style>
+    h1{
+        font-size: 3rem;
+        text-align: center;
+        margin: 10% 0 0 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(255, 0, 0);
+    }
+    h2{
+        text-align: center;
+        font-size: 3rem;
+        margin: 5px 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: blue;
+    }
+    p {
+        font-size: 3rem;
+        font-family: 'Courier New', Courier, monospace;
+        color: rgb(0, 0, 0);
+        padding: 2%;
+        margin: 0 auto;
+        width: 95%;
+        font-weight: 900;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div>
+        <h1> ONE PUNCH MAN <br><h2>chapter 171</h2></h1>
+        <p id="demo" style=""></p>
+    </div>
+    <script>
+        var countDownDate = new Date("Sep 22, 2022 00:15:25").getTime();
+
+        var x = setInterval(function () {
+
+            var now = new Date().getTime();
+
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("demo").innerHTML = days + "day " + hours + "h "
+                + minutes + "m " + seconds + "sec ";
+
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
